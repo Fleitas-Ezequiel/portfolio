@@ -1,0 +1,27 @@
+<div class="redes__sociales">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <input type="checkbox" id="menu-bar" [(ngModel)]="menucheck">
+  <label for="menu-bar" class="fa fa-bars" (click)="menuClick()"></label>
+
+  <nav class="navbar">
+    <ul [class]="estilosMenu" >
+      <div class="offcanvas" (click)="cerrarMenu()"></div>
+      <div [class]="estado">
+        
+        <div class="button__container">
+          <button id="logearse" class="button" (click)="signIn()">Login</button>
+        </div>
+        
+        <div *ngFor="let red of social">
+          <a href={{red.valor_contacto}}
+            target="_blank" class="item">
+            <img src="{{red.img}}" alt={{red.tipo_contacto}}/>
+            <p>{{red.tipo_contacto}}</p> 
+          </a>
+        </div>
+      </div>
+    </ul>
+    
+  </nav>
+</div>

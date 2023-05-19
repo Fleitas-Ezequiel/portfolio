@@ -1,0 +1,12 @@
+<div class="container">
+  <img src="{{imagenSave}}"
+    alt="editar"
+    class="editar prof"
+    *ngIf="edit"
+    (click)="guardar($event)"/>
+
+  <img src="{{imagenEdit}}"
+    alt="editar"
+    class="editar prof"
+    (click)="editar($event)"/>
+</div>

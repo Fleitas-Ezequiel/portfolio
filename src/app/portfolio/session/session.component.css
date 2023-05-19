@@ -1,0 +1,58 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.navegacion{
+  top: 0;
+  height: 80px;
+  width: 100vw;
+  position: sticky;
+  background-color: antiquewhite;
+  box-shadow: 0 .5rem .8rem rgba(0, 0, 0, .2);
+  /* position: sticky;
+  top: 0;
+  width: 100%;
+  height: var(--nav-height);
+  margin-bottom: calc(var(--nav-height) * -1);
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: top 0.5s, box-shadow 0.5s; */
+}
+
+app-about-me-session{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.habilidades{
+  height: 200px;
+  padding: 20px;
+}
+
+.projects{
+  padding: 20px;
+}
+
+.collect{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  justify-content: flex-start;
+}
+
+
+@media screen and (min-width: 768px){
+
+  .container{
+    margin: auto;
+  }
+
+}

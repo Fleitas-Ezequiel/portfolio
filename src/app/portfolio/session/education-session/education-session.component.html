@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Estudios Realizados</h2><br>
+  <div *ngFor="let estudio of dataEducation" class="cards-study">
+    <img src="{{estudio.img}}" alt="{{estudio.institucion}}">
+    <div>
+      <p><b>{{estudio.institucion}}</b></p>
+      <p><b>Titulo:</b> {{estudio.titulo}}</p>
+      <p><b>Estado:</b> {{estudio.estado}}</p><br>
+    </div>
+  </div>
+</div>

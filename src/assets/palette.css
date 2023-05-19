@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+
+:root {
+    --color-dark-violet: #311566;
+    --color-purple: #7624f4;
+    --color-lavanda: #d0b9ff;
+    --color-white-lavanda: #f7eeff;
+    --color-beige: #ffd19e;
+}

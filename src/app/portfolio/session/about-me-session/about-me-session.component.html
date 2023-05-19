@@ -1,0 +1,53 @@
+<div class="container">
+
+  <div class="container__profile">
+    
+      <img src="{{datos.foto}}" alt="Profile Photo" class="ProfilePh"/>
+      <ng-template #presentacion>
+        <p>Hola!<br/>Soy 
+          {{datos.nombre}}<br/>
+          {{datos.apellido}}
+        </p>
+      </ng-template>
+
+      <div *ngIf="mostrarPresentacion; else presentacion">
+        <p>
+        Hola!<br/>Soy 
+          <input type="text" value="{{datos.nombre}}"  placeholder="Nombre">
+          <br/>
+          <input type="text" value="{{datos.apellido}}"  placeholder="Apellido">
+        </p>
+      </div>
+    
+  </div>
+  
+  
+  <div class="container__description">
+    <div>
+      <h3 class="container__description-title">Acerca de mi</h3>
+    </div>
+    
+      <div class="informacion">
+        <app-btn-edit class="btn-descripcion" 
+          (editarDescripcion)="edit($event)" 
+          (guardarDescripcion)="guardar($event)"
+          [datosACargar]="datosAGuardar"
+          [ruta]="route"
+          >
+        </app-btn-edit>
+
+        <ng-template #desDefinitiva >
+          <p>{{datos.descripcion}}</p>
+        </ng-template>
+        
+          <textarea type="area" 
+            value="{{datos.descripcion}}" 
+            *ngIf="mostrarDescripcion; else desDefinitiva"
+            #valor
+            (change)="guardar($event)"
+            class="modificarDescrip">
+          </textarea>
+      </div>
+    
+  </div>
+</div>

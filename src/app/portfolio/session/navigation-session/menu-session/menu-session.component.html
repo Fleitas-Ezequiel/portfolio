@@ -1,0 +1,46 @@
+<div class="redes__sociales">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <input type="checkbox" id="menu-bar" [checked]="menucheck">
+  <label for="menu-bar" class="fa fa-bars" (click)="menuClick()"></label>
+
+  <nav class="navbar">
+    <ul [class]="estilosMenu">
+      <div class="offcanvas" (click)="cerrarMenu()"></div>
+        <div [class]="estado">
+          <div class="button__container">
+            <button id="logearse" class="button" (click)="signOut()">Cerrar Sesion</button>
+          </div>
+
+          <div class="agregar item" (click)="agregar()">
+            <div class="addIcon">
+              <div class="lineIcon"></div>
+              <div class="lineIcon rotated"></div>
+            </div>
+            <p>Agregar Red Social</p>
+          </div>
+          <div *ngIf="mostrar" class="ingresarSocial">
+            
+              <p>Red Social</p>
+              <input type="text" name="inSocial" formControlName="tipo_contacto">
+              <p>URL</p>
+              <input type="text" name="inSocial" formControlName="valor_contacto">
+              <p>Direccion image</p>
+              <input type="text" name="inSocial" formControlName="img">
+              <div class="igSocialBtn">
+                <input type="submit" value="Guardar">
+                <input type="button" value="Cancelar" (click)="cancelarSocial()">
+              </div>
+            
+          </div>
+          <div *ngFor="let red of social" class="item">
+            <a href={{red.valor_contacto}}
+              target="_blank" >
+              <img src="{{red.img}}" alt="{{red.tipo_contacto}}"/>
+              <p>{{red.tipo_contacto}}</p>
+            </a>
+          </div>
+      </div>
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Iniciar Sesion</h2>
+  <form [formGroup]="form" (ngSubmit)="onSend($event)" class="conatiner__form">
+    <table class="container__table">
+      <tr class="table__items">
+        <h3>Usuario</h3>
+        <div class="inputs">
+          <input type="email" placeholder="Email" formControlName="email" required>
+        </div>
+      </tr>
+      <tr class="table__items">
+        <h3>Contraseña</h3>
+        <div class="inputs">
+          <input [type]="estado" placeholder="Contraseña" formControlName="password" required>
+        </div>
+      </tr>
+      <tr>
+        <input type="checkbox" value="Ver contraseña" id="verPass" (click)="ver()"/>
+        <label for="verPass">Ver Contraseña</label>
+      </tr>
+      <tr class="table__buttons">
+        <div>
+          <input type="submit" name="Ingresar" id="ingresar" value="Ingresar" class="button">
+        </div>
+        <div>
+          <input type="button" name="Cancelar" id="Cancelar" value="Cancelar" class="button" (click)="cancel()">
+        </div>
+      </tr>
+    </table>
+  </form>
+</div>

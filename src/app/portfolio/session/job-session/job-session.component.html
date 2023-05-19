@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Experiencia Laboral</h2><br>
+
+  <div *ngFor="let trabajo of trabajos" class="card">
+    <img src="{{trabajo.img}}" alt="{{trabajo.empresa}}">
+    <div>
+      <p><b>{{ trabajo.empresa }}</b></p>
+      <p><b>Puesto:</b> {{trabajo.puesto}}</p>
+      <p>{{trabajo.descripcion}}</p><br>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,275 @@
+a{
+  text-decoration: none;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.redes__sociales{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.redes__sociales-lista{
+  display: none;
+}
+
+.offcanvas {
+  width: 100%;
+  height: 100%;
+  background-color:rgba(1, 1, 1, .2);
+}
+
+.open{
+  right: 0;
+  position: fixed;
+  display: flex;
+  margin-top: 18px;
+  height: 100%;
+  width: 100vh;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color:rgba(1, 1, 1, .5);
+  user-select: none;
+  z-index: 900;
+}
+
+.desplegado{
+  right: 0;
+  gap: 20px;
+  padding: 20px 0 20px 0;
+  position: fixed;
+  width: 25vh;
+  height: 100%;
+  background-color: #dbd9d9;
+  z-index: 1000;
+}
+
+.item{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.item:hover{
+  background:  rgba(0,0,0,.1);
+}
+
+.item img{
+  height: 50px;
+  width: 50px;
+  margin: 5px 5px 5px 20px;
+}
+
+.item a {
+  display: flex;
+  align-items: center;
+  
+}
+
+.button{
+  height: 40px;
+  width: 70%;
+  border-radius: 10px;
+  margin: auto;
+  background-color: cornflowerblue;
+  cursor: pointer;
+  color: antiquewhite;
+  font-size: 1.1rem;
+  font-weight:600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button:hover{
+  background-color: rgba(100, 149, 237, .8);
+}
+
+.button__container {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.agregar {
+  height: 50px;
+  margin-bottom: 15px;
+  padding: 10px 30px 10px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(0,0,0,.6);
+}
+
+.redes__sociales #menu-bar{
+  display: none;
+}
+
+.redes__sociales label{
+  font-size: 2.5rem;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.redes__sociales input:checked {
+  transform: scaleY(2);
+  opacity: 1;
+}
+.redes__sociales input:checked ~ label::before{
+  content: '\f00d';
+}
+
+.addIcon{
+  height: 25px;
+  width: 25px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: 3px solid black;
+  border-radius: 300px;
+}
+
+.lineIcon{
+  height: 3px;
+  width: 100%;
+  background-color: black;
+}
+
+.ingresar {
+  display: flex;
+}
+
+.rotated {
+  margin-top: -2px;
+  transform: rotate(90deg);
+}
+
+.ingresarSocial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  font-weight: 600;
+  align-items: center;
+  gap: 5px;
+}
+
+.igSocialBtn{
+  margin-top: 10px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.igSocialBtn > input {
+  border-radius: 7px;
+  width: 40%;
+}
+
+.ingresarSocial input {
+  padding: 5px;
+}
+
+.config{
+  height: 60%;
+}
+
+
+@media screen and (min-width: 780px){
+  
+  .redes__sociales label{
+    visibility: hidden;
+  }
+
+  .redes__sociales input, label{
+    display: none;
+  }
+
+  .redes__sociales-lista{
+    display: flex;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    direction: rtl;
+  }
+
+  .open {
+    position: absolute;
+    height: max-content;
+    width: fit-content;
+  }
+
+  .desplegado{
+    position: absolute;
+    display: flex;
+  }
+
+  .contenedor-items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .button{
+    width: 150px;
+  }
+
+  .item a > p{
+    display: none;
+  }
+  
+  .agregar {
+    margin-top: 15px;
+    height: 60px;
+    position: sticky;
+  }
+
+  .addIcon {
+    scale: 1.4;
+    margin: auto;
+  }
+
+  .agregar > p {
+    display: none;
+  }
+
+  .ingresarSocial {
+    height: 250px;
+    width: 30%;
+    position: fixed;
+    flex-direction: column;
+    direction: ltr;
+    margin: 340px 0 0 0px;
+    background-color: #dbd9d9;
+    z-index: 10;
+  }
+
+  .ingresarSocial > form {
+    position: absolute;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .ingresarSocial > form > input {
+    z-index: 20;
+    display: block;
+  }
+
+  .igSocialBtn > input{
+    display: flex;
+    z-index: 20;
+  }
+  
+}

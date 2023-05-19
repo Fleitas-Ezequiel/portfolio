@@ -1,0 +1,46 @@
+.container {
+  background-color: #f8f8f8;
+  gap: 20px;
+}
+
+.navegacion{
+  top: 0;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  background-color: #464246;
+  box-shadow: 0 .5rem .8rem rgba(0, 0, 0, .2);
+}
+
+app-about-me{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.habilidades{
+  height: 200px;
+}
+
+.proyectos{
+  padding: 20px;
+}
+
+.collect{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  justify-content: flex-start;
+}
+
+
+@media screen and (min-width: 768px){
+  .container{
+    margin: auto;
+  }
+
+  app-about-me{
+    flex-direction: column;
+  }
+
+}

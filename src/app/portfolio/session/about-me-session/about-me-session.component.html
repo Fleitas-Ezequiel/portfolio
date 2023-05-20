@@ -1,24 +1,40 @@
 <div class="container">
 
   <div class="container__profile">
-    
-      <img src="{{datos.foto}}" alt="Profile Photo" class="ProfilePh"/>
+
+      <app-btn-edit class="btn-photo"
+          (editarDescripcion)="editarFoto($event)" 
+          (guardarDescripcion)="guardarFoto($event)"
+          [datosACargar]="datosAGuardar"
+          [ruta]="route"></app-btn-edit>
+      <ng-template #fotoProfile>
+        <input type="text" class="inputFoto" placeholder="URL de Imagen: https://miFotoDePerfil.com/direction" (change)="guardarFoto($event)">
+      </ng-template>
+      <img src="{{datos.foto}}"
+          alt="Profile Photo"
+          *ngIf="mostrarEdicionFoto; else fotoProfile"
+          class="ProfilePh"/>
+      
+      <app-btn-edit class="btn-name"
+          (editarDescripcion)="editarNombre($event)"
+          (guardarDescripcion)="guardarNombreYApellido($event)"
+          [datosACargar]="datosAGuardar"
+          [ruta]="route"></app-btn-edit>
       <ng-template #presentacion>
         <p>Hola!<br/>Soy 
           {{datos.nombre}}<br/>
           {{datos.apellido}}
         </p>
       </ng-template>
-
+      
       <div *ngIf="mostrarPresentacion; else presentacion">
         <p>
         Hola!<br/>Soy 
-          <input type="text" value="{{datos.nombre}}"  placeholder="Nombre">
+          <input type="text" value="{{datos.nombre}}" #name (change)="actualizarDatos()" class="{{estado}}">
           <br/>
-          <input type="text" value="{{datos.apellido}}"  placeholder="Apellido">
+          <input type="text" value="{{datos.apellido}}" #surname>
         </p>
       </div>
-    
   </div>
   
   
@@ -29,8 +45,8 @@
     
       <div class="informacion">
         <app-btn-edit class="btn-descripcion" 
-          (editarDescripcion)="edit($event)" 
-          (guardarDescripcion)="guardar($event)"
+          (editarDescripcion)="editarDescripcion($event)" 
+          (guardarDescripcion)="guardarDescripcion($event)"
           [datosACargar]="datosAGuardar"
           [ruta]="route"
           >
@@ -44,7 +60,7 @@
             value="{{datos.descripcion}}" 
             *ngIf="mostrarDescripcion; else desDefinitiva"
             #valor
-            (change)="guardar($event)"
+            (change)="guardarDescripcion($event)"
             class="modificarDescrip">
           </textarea>
       </div>

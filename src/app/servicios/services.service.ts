@@ -23,7 +23,6 @@ export class ServicesService {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     })
-
     return this.http.post( 'http://localhost:8080/api' + dir, datos, { headers:header });
   }
 
@@ -33,7 +32,15 @@ export class ServicesService {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     })
-
     return this.http.put( 'http://localhost:8080/api' + dir, datos, { headers:header });
+  }
+
+  eliminarDatos(dir:String):Observable<any>{
+    const token = this.autenticacionServicio.UsuarioAutenticado;
+    const header = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      Authorization : `Bearer ${token}`
+    })
+    return this.http.delete('http://localhost:8080/api'+ dir, { headers:header });
   }
 }

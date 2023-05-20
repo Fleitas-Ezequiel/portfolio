@@ -31,15 +31,20 @@
 .ProfilePh{
   height: 90%;
   width: 90%;
-  margin-top: 20px;
+  margin: 0 0 50px 0;
   border-radius: 220px;
   border: 3px solid rgba(0, 0, 0, 0.5);
   box-shadow: 0 .5 1rem rgba(0, 0, 0, .5);
 }
 
+.inputFoto {
+  width: 70vw;
+  margin: 20px 0 100px 0;
+}
+
 .container__profile p{
   text-align: center;
-  margin: 50px 0 50px 0;
+  margin: 0px 0 50px 0;
   font-weight: bold;
   font-family: sans-serif;
   font-size: 4rem;
@@ -73,6 +78,14 @@
   color: #424642;
 }
 
+.btn-photo {
+  margin-left: 50%;
+}
+
+.btn-name {
+  margin-left: 50%;
+}
+
 .btn-descripcion {
   width: 100%;
   display: flex;
@@ -96,9 +109,13 @@
 
 .modificarDescrip {
   padding: 10px;
-  font-size: 1.2rem;
-  height: 250px;
-  width: 400px;
+  font-size: 1.5rem;
+  height: 35vh;
+  width: 80vw;
+}
+
+.error {
+  box-shadow: .5rem 0 1rem .5rem rgba(175, 0, 0, .5);
 }
 
 @media screen and (min-width: 768px){
@@ -124,5 +141,10 @@
 
   .descriptcionBotones{
     margin-left: -30px;
+  }
+
+  .modificarDescrip {
+    height: 25vh;
+    width: 40vw;
   }
 }

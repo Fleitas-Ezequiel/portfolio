@@ -1,11 +1,73 @@
 <div class="container">
-  <h2>Estudios Realizados</h2><br>
-  <div *ngFor="let estudio of dataEducation" class="cards-study">
-    <img src="{{estudio.img}}" alt="{{estudio.institucion}}">
-    <div>
-      <p><b>{{estudio.institucion}}</b></p>
-      <p><b>Titulo:</b> {{estudio.titulo}}</p>
-      <p><b>Estado:</b> {{estudio.estado}}</p><br>
+
+  <!-- Cabecera -->
+  <div class="cabecera">
+    <h2>Estudios Realizados</h2>
+    <button class="{{estadoBoton}}"
+      (click)="agregarEstudio()">
+      <div class="item"></div>
+      <div class="item vertical"></div>
+    </button>
+    <img src="data:image/png;base64,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"
+      alt="guardar" class="agregar guardado"
+      (click)="guardarEstudio($event)"
+      *ngIf="estadoBoton == 'agregar cancelar'">
+  </div>
+  <br>
+
+  <div *ngIf="estadoBoton=='agregar cancelar'">
+    <form [formGroup]="form" class="cards-study">
+      <textarea type="text" placeholder="URl Imagen" class="inputIMG" formControlName="foto"></textarea>
+      <div>
+        <input type="text" placeholder="Nombre Institucion" formControlName="institucion">
+        <p><b>Titulo:</b></p><input type="text" formControlName="titulo">
+        <p><b>Fecha Inicio:</b></p><input type="Date" formControlName="fecha_inicio_estudio">
+        <p><b>Fecha Fin:</b></p><input type="Date" formControlName="fecha_fin_estudio">
+        <p><b>Estado:</b></p><input type="text" formControlName="estado">
+      </div>
+    </form>
+  </div>
+
+  <!-- Tarjetas -->
+  <div *ngFor="let estudio of dataEducation, let indice = index" >
+    <app-btn-edit class="btn-edit"
+        (editarDescripcion)="editarEstudio($event, indice)" 
+        (guardarDescripcion)="actualizarEstudio($event, estudio)"
+        [datosACargar]="datosAGuardar"
+        [ruta]="route"></app-btn-edit>
+
+    <div class="container__delete">
+      <img src="https://cdn.icon-icons.com/icons2/692/PNG/512/seo-social-web-network-internet_262_icon-icons.com_61518.png"
+      alt="guardar" class="eliminar"
+      *ngIf="editar == indice"
+      (click)="deleteStudy($event)">
     </div>
+
+    <div class="cards-study" *ngIf="editar != indice; else editCard">
+      <img src="{{estudio.img}}" alt="{{estudio.institucion}}">
+      <div>
+        <p><b>{{estudio.institucion}}</b></p>
+        <p><b>Titulo:</b> {{estudio.titulo}}</p>
+        <p><b>Fecha Inicio:</b>{{estudio.fecha_inicio_estudio}}</p>
+        <p><b>Fecha Inicio:</b>{{estudio.fecha_fin_estudio}}</p>
+        <p><b>Estado:</b> {{estudio.estado}}</p><br>
+      </div>
+    </div>
+
+    <ng-template #editCard >
+      <form [formGroup]="fromUpdate" class="cards-study" (change)="enviarDatos()" (mouseup)="enviarDatos()">
+        
+        <textarea type="text" placeholder="URl Imagen" class="inputIMG" formControlName="img" [value]="study.img"></textarea>
+        <div>
+          <input type="text" formControlName="id" [value]="study.id" style="display: none;">
+          <input type="text" placeholder="Nombre Institucion" formControlName="institucion" [value]="study.institucion">
+          <p><b>Titulo:</b></p><input type="text" [value]="study.titulo" formControlName="titulo">
+          <p><b>Fecha Inicio:</b></p><input type="Date" formControlName="fecha_inicio_estudio" [value]="study.fecha_inicio_estudio">
+          <p><b>Fecha Fin:</b></p><input type="Date" formControlName="fecha_fin_estudio" [value]="study.fecha_fin_estudio">
+          <p><b>Estado:</b></p><input type="text" formControlName="estado" [value]="study.estado">
+        </div>
+      </form>
+    </ng-template>
+
   </div>
 </div>

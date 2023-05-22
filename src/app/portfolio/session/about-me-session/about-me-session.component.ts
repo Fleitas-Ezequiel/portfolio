@@ -35,6 +35,7 @@ export class AboutMeSessionComponent implements OnInit{
     {
       this.mostrarDescripcion = !this.mostrarDescripcion;
     }
+
   }
 
   guardarDescripcion(event:Event){
@@ -51,10 +52,10 @@ export class AboutMeSessionComponent implements OnInit{
   }
 
   editarNombre(event:Event){
-    
     if(event.isTrusted)
     {
       this.mostrarPresentacion = !this.mostrarPresentacion;
+      this.actualizarDatos;
     }
   }
 

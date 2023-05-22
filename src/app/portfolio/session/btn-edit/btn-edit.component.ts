@@ -10,9 +10,9 @@ export class BtnEditComponent {
 
   @Output() editarDescripcion = new EventEmitter<Event>();
   @Output() guardarDescripcion = new EventEmitter<Event>();
-  @Input() datosACargar:JSON;
+  @Input() datosACargar:any;
   @Input() ruta = '';
-
+  datos:any;
   imagenEdit:String = "https://w7.pngwing.com/pngs/740/67/png-transparent-computer-icons-icon-design-edit-angle-computer-data-thumbnail.png";
   imagenSave:String = "data:image/png;base64,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";
   edit:Boolean = false;
@@ -33,19 +33,35 @@ export class BtnEditComponent {
   }
 
   guardar(event:Event){
-    const datos = this.datosACargar;
-    console.log(datos);
     this.guardarDescripcion.emit(event);
-    if(event.isTrusted && this.datosACargar!=null){
-      this.service.actualizarDatos(this.ruta, datos).subscribe(resp => {
-        console.log(resp);
-      },
-      err => {
-        console.log(err);
-      }
-      ); 
+    if(event.isTrusted){
+      console.log('click');
+      this.datosObtenidos();
       this.editar(event);
     }
+  }
+
+  obtenerInformacion():Promise<any>{
+    console.log('1');
+    return new Promise((resolve)=>{
+      resolve(this.datosACargar);
+    })
+  }
+
+  async datosObtenidos(){
+    try {
+      this.datos = await this.obtenerInformacion();
+      console.log(this.datos);
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(this.datos);
+    this.service.actualizarDatos(this.ruta, this.datos).subscribe(resp => {
+      console.log(resp);
+    },
+    err => {
+      console.log(err);
+    });
   }
 
 }

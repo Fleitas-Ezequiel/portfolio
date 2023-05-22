@@ -45,12 +45,12 @@ img{
 }
 
 .cards-study{
-display: flex;
-margin: auto;
-padding: 20px;
-gap: 20px;
-box-shadow: .9rem 0 1rem .5rem rgba(0, 0, 0, .3);
-border-radius: 15px;
+  display: flex;
+  margin: auto;
+  padding: 20px;
+  gap: 20px;
+  box-shadow: .9rem 0 1rem .5rem rgba(0, 0, 0, .3);
+  border-radius: 15px;
 }
 
 p {

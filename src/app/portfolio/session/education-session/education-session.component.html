@@ -54,8 +54,10 @@
       </div>
     </div>
 
-    <ng-template #editCard >
-      <form [formGroup]="fromUpdate" class="cards-study" (change)="enviarDatos()" (mouseup)="enviarDatos()">
+    <ng-template #editCard>
+      <form [formGroup]="fromUpdate" class="cards-study"
+            (change)="enviarDatos()"
+            (mouseup)="enviarDatos()">
         
         <textarea type="text" placeholder="URl Imagen" class="inputIMG" formControlName="img" [value]="study.img"></textarea>
         <div>

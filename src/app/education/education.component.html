@@ -1,11 +1,12 @@
-<h2>Estudios Realizados</h2><br>
+<div class="container">
+  <h2>Estudios Realizados</h2><br>
 
-<div *ngFor="let estudio of dataEducation" class="cards-study">
-  <img src="{{estudio.img}}" alt="{{estudio.institucion}}">
-  <div>
-    <p><b>{{estudio.institucion}}</b></p><br>
-    <p><b>Titulo:</b> {{estudio.titulo}}</p><br>
-    <p><b>Estado:</b> {{estudio.estado}}</p><br><br>
+  <div *ngFor="let estudio of dataEducation" class="cards-study">
+    <img src="{{estudio.img}}" alt="{{estudio.institucion}}">
+    <div>
+      <p><b>{{estudio.institucion}}</b></p><br>
+      <p><b>Titulo:</b> {{estudio.titulo}}</p><br>
+      <p><b>Estado:</b> {{estudio.estado}}</p><br><br>
+    </div>
   </div>
-  
 </div>

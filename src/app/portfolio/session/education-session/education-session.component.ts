@@ -59,7 +59,7 @@ export class EducationSessionComponent {
     return this.form.get('fecha_fin_estudio');
   }
   get Img(){
-    return this.form.get('img');
+    return this.form.get('foto');
   }
 
   //Segundo formulario de actualizacion de un estudio existente
@@ -80,13 +80,6 @@ export class EducationSessionComponent {
   }
   get ImgUp(){
     return this.fromUpdate.get('img');
-  }
-  
-  setFormId(){
-    for(let estuido of this.dataEducation){
-      console.log(estuido);
-    }
-    return 
   }
 
   ngOnInit():void{
@@ -116,13 +109,15 @@ export class EducationSessionComponent {
     }else{
       this.editar = indice;
     }
-    this.enviarDatos()
+    this.enviarDatos();
+    this.route = "/actualizar/educacion";
   }
 
   guardarEstudio(event:Event){
     event.preventDefault;
     this.route = "/guardar/education"
     this.authentication.guardarDatos(this.route,this.form.value).subscribe(req => {
+      location.reload();
       console.log(req);
     })
   }
@@ -133,12 +128,11 @@ export class EducationSessionComponent {
     if(this.datosAGuardar.institucion == ''){
       this.datosAGuardar = this.datosFinales;
     }
-    this.datosAGuardar.id = this.datosFinales.id
-    console.log('linea 130',this.datosAGuardar);
+    this.datosAGuardar.id = this.datosFinales.id;
   }
 
   actualizarEstudio(event:Event, estudio:any){
-    this.route = "/actualizar/educacion";
+    
     this.datosAGuardar = this.fromUpdate.value;
   }
 

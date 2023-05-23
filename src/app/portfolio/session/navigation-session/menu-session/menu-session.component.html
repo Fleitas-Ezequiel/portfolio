@@ -34,18 +34,39 @@
             </div>
           </form>
         </div>
-        <div *ngFor="let red of social, let i = index" class="item">
-          <div class="item">
-            <a href={{red.valor_contacto}}
-            target="_blank" >
-            <img src="{{red.img}}" alt="{{red.tipo_contacto}}"/>
-            <p>{{red.tipo_contacto}}</p>
-          </a>
+        <div *ngFor="let red of social, let i = index" class="complete__selections">
+          <div  class="item">
+            <div class="item">
+              <a href={{red.valor_contacto}}
+              target="_blank" >
+              <img src="{{red.img}}" alt="{{red.tipo_contacto}}"/>
+              <p>{{red.tipo_contacto}}</p>
+            </a>
+            </div>
+            <div class="edit__contact" (click)="editarContacto(i)">
+              <div class="point__edit"></div>
+              <div class="point__edit"></div>
+              <div class="point__edit"></div>
+            </div>
           </div>
-          <div class="edit__contact" (click)="editarContacto(i)">
-            <div class="point__edit"></div>
-            <div class="point__edit"></div>
-            <div class="point__edit"></div>
+          <div class="menu__update" *ngIf="editar == i">
+            <div class="action__menu" (click)="actualizar()"><p>Modificar</p></div>
+            <div class="action__menu" (click)="borrarContacto(red)"><p>Eliminar</p></div>
+          </div>
+        
+          <div *ngIf="editar == i">
+            <form [formGroup]="formUpdate" (ngSubmit)="onUpdate($event, red)" *ngIf="update == 'update'" class="update">
+              <p>Red Social</p>
+              <input type="text" name="inSocial" formControlName="tipo_contacto">
+              <p>URL</p>
+              <input type="text" name="inSocial" formControlName="valor_contacto">
+              <p>Direccion image</p>
+              <input type="text" name="inSocial" formControlName="img">
+              <div class="igSocialBtn">
+                <input type="submit" value="Guardar" class="boton">
+                <input type="button" value="Cancelar" (click)="cancelarUpdate()" class="boton">
+              </div>
+            </form>
           </div>
         </div>
       </div>

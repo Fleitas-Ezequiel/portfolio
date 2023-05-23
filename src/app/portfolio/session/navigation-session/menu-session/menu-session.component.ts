@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { ServicesService } from 'src/app/servicios/services.service';
 })
 export class MenuSessionComponent implements OnInit{
 
+  @ViewChild('delete') eliminar:ElementRef;
   estilosMenu:String = "redes__sociales-lista";
   estado:String = "contenedor-items";
   width: any;
@@ -23,6 +24,8 @@ export class MenuSessionComponent implements OnInit{
   abrirConfig:Boolean = false;
   menuConfig:String = 'menuConfig';
   editar:number = -1;
+  update:String = 'Notupdate';
+  formUpdate:FormGroup;
 
   constructor(
     private router: Router,
@@ -40,6 +43,15 @@ export class MenuSessionComponent implements OnInit{
         img:['']
     })
 
+    this.formUpdate = this.formBuilder.group(
+      {
+        id: [''],
+        tipo_contacto:[''],
+        valor_contacto:[''],
+        img:['']
+      }
+    )
+
   }
   get TipoContacto(){
     return this.form.get('tipo_contacto');
@@ -49,6 +61,16 @@ export class MenuSessionComponent implements OnInit{
   }
   get Img(){
     return this.form.get('img');
+  }
+
+  get TipoContactoUp(){
+    return this.formUpdate.get('tipo_contacto');
+  }
+  get ValorContactoUp(){
+    return this.formUpdate.get('valor_contacto');
+  }
+  get ImgUp(){
+    return this.formUpdate.get('img');
   }
 
   ngOnInit():void{
@@ -98,11 +120,37 @@ export class MenuSessionComponent implements OnInit{
   }
 
   editarContacto(indice:number){
+    this.update = 'Notupdate'
     if(this.editar == indice){
       this.editar = -1;
     }else{
       this.editar = indice;
+
     }
+  }
+
+  borrarContacto(red:any){
+    const ruta = '/eliminar/contacto/' + red.id;
+    this.service.eliminarDatos(ruta).subscribe(resp => {
+      console.log(resp);
+    })
+  }
+
+  actualizar(){
+    this.update = 'update';
+  }
+
+  onUpdate(event:Event, red:any){
+    const ruta = '/acutalizar/contacto';
+    this.formUpdate.value.id = red.id;
+    console.log(this.formUpdate.value);
+    this.service.actualizarDatos(ruta, this.formUpdate.value).subscribe(res => {
+      console.log(res);
+    })
+  }
+
+  cancelarUpdate(){
+    this.update = 'Notupdate';
   }
 
 }

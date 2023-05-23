@@ -17,6 +17,17 @@ export class JobComponent {
   ngOnInit(){
     this.service.obtenerDatos().subscribe(req => {
       this.trabajos = req[0].experiencia;
+      let job
+      for(job of this.trabajos){
+        let fechaIni='';
+        let fechaFin='';
+        for(let i=0; i<10; i++){
+          fechaIni += job.fecha_inicio[i];
+          fechaFin += job.fecha_fin[i];
+        }
+        job.fecha_inicio = fechaIni;
+        job.fecha_fin = fechaFin;
+      }
     })
   }
 }

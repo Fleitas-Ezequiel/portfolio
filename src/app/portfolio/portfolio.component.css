@@ -33,6 +33,16 @@ app-about-me{
   justify-content: flex-start;
 }
 
+.end {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #464246;
+  color: #f8f8f8;
+  font-size: 1.3rem;
+}
+
 
 @media screen and (min-width: 768px){
   .container{

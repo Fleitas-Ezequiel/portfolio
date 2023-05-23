@@ -15,7 +15,17 @@ export class EducationComponent {
   ngOnInit():void{
     this.data.obtenerDatos().subscribe(sources =>{
       this.dataEducation = sources[0].educacion;
-      console.log(this.dataEducation);
+      let aux;
+      for(aux of this.dataEducation){
+        let fechaIni='';
+        let fechaFin='';
+        for(let i=0; i<10; i++){
+          fechaIni += aux.fecha_inicio_estudio[i];
+          fechaFin += aux.fecha_fin_estudio[i];
+        }
+        aux.fecha_inicio_estudio = fechaIni;
+        aux.fecha_fin_estudio = fechaFin;
+      }
     })
   }
 }

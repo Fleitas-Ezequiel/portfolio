@@ -24,9 +24,10 @@ h2{
   width: 70%;
   height: 25vh;
   margin: 10px;
-  padding: 20px;
+  padding: 25px;
   text-align: center;
   border-radius: 10px;
+  color: #424642;
   box-shadow: 0px .5rem 10px rgba(0, 0, 0, .2);
 }
 
@@ -35,8 +36,14 @@ h2{
 }
 
 .skill__card img{
-  height: 100%;
+  height: 90%;
   width: 70%;
+}
+
+.skill__card p {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @media screen and (min-width: 768px){

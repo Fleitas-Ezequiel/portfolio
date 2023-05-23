@@ -2,7 +2,8 @@
   <h2>Skills</h2>
   <div class="container__skills">
     <div *ngFor="let skill of skills" class="skill__card">
-      <img src="{{skill.url}}" alt="{{skill.habilidad}}">
+      <img src="{{skill.img}}" alt="{{skill.nombre}}">
+      <p>{{skill.nombre}}</p>
     </div>
   </div>
 </div>

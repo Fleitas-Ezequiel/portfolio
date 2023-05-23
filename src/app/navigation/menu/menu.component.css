@@ -57,6 +57,7 @@ a{
   cursor: pointer;
   font-size: 3.5vw;
   gap: 20px;
+  color: #f8f8f8;
 }
 
 .item:hover{

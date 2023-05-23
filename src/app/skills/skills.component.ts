@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicesService } from '../servicios/services.service';
 
 @Component({
   selector: 'app-skills',
@@ -7,13 +8,15 @@ import { Component } from '@angular/core';
 })
 export class SkillsComponent {
 
-  skills = [
-    {habilidad:"html", url:"../../assets/images/skills/html-logo.png"},
-    {habilidad:"css", url:"../../assets/images/skills/css-logo.png"},
-    {habilidad:"javascript", url:"../../assets/images/skills/javascript-logo.png"},
-    {habilidad:"Angular", url:"../../assets/images/skills/angular-logo.png"},
-    {habilidad:"Spring Boot", url:"../../assets/images/skills/springboot-logo.png"}
-  ]
+  skills:any;
+
+  constructor( private service:ServicesService ){}
+
+  ngOnInit(){
+    this.service.obtenerDatos().subscribe(req => {
+      this.skills = req[0].skills;
+    })
+  }
 
 
 }

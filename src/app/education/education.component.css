@@ -42,5 +42,9 @@ p {
   * {
     text-align: left;
   }
+
+  .cards-study {
+    width: 50vw;
+  }
 }
 

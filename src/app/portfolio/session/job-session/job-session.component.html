@@ -57,7 +57,7 @@
     <ng-template #editCard>
       <div class="cards-job"
             (focus)="enviarDatos()"
-            (blur)="enviarDatos()">
+            (change)="enviarDatos()">
         
         <textarea type="text" placeholder="URl Imagen" class="inputIMG"  [value]="job.img" #actualizarImagen></textarea>
         <div>

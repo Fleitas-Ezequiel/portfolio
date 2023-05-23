@@ -13,11 +13,13 @@ export class AboutMeSessionComponent implements OnInit{
   estado:String = 'normal';
   @ViewChild('name') myName: ElementRef;
   @ViewChild('surname') mySurname: ElementRef;
+  @ViewChild('photo') myPhoto: ElementRef;
+  @ViewChild('valor') myDescription: ElementRef;
   mostrarPresentacion:Boolean = false;
   mostrarDescripcion:Boolean = false;
   mostrarEdicionFoto:Boolean = true;
   datosAGuardar:any;
-  route = '/guardar/persona';
+  route = '';
 
   constructor(
     private datosAbout:ServicesService
@@ -26,66 +28,41 @@ export class AboutMeSessionComponent implements OnInit{
   ngOnInit():void{
     this.datosAbout.obtenerDatos().subscribe(data =>{
       this.datos = data[0];
+      this.datosAGuardar = this.datos;
     });
   }
 
   editarDescripcion(event:Event){
-    
     if(event.isTrusted)
     {
       this.mostrarDescripcion = !this.mostrarDescripcion;
     }
-
   }
 
   guardarDescripcion(event:Event){
-    console.log((<HTMLInputElement>event.target).value);
-    if((<HTMLInputElement>event.target).value == undefined){
-      this.estado = 'error';
-    }
-    const datos = 
-    {
-      descripcion : (<HTMLInputElement>event.target).value
-    }
-    
-    this.datosAGuardar = datos;
+    this.route = '/actualizar/persona';
+    this.datosAGuardar.descripcion = this.myDescription.nativeElement.value;
   }
 
   editarNombre(event:Event){
     if(event.isTrusted)
     {
       this.mostrarPresentacion = !this.mostrarPresentacion;
-      this.actualizarDatos;
+      this.actualizarDatos();
     }
   }
 
   actualizarDatos(){
-    const datos = 
-    {
-      nombre : this.myName.nativeElement.value,
-      apellido: this.mySurname.nativeElement.value
-    }
-
-    console.log(datos);
-    
-    this.datosAGuardar = datos;
+    this.datosAGuardar.nombre = this.myName.nativeElement.value;
+    this.datosAGuardar.apellido = this.mySurname.nativeElement.value;
+    this.route = '/actualizar/persona';
   }
 
   guardarNombreYApellido(event:Event){
-    console.log( this.myName.nativeElement.value, this.mySurname.nativeElement.value);
-    const datos = 
-    {
-      nombre : this.myName.nativeElement.value,
-      apellido: this.mySurname.nativeElement.value
-    }
-
-    console.log(datos);
-    
-    this.datosAGuardar = datos;
+    this.actualizarDatos();
   }
 
   editarFoto(event:Event){
-    
     if(event.isTrusted)
     {
       this.mostrarEdicionFoto = !this.mostrarEdicionFoto;
@@ -98,6 +75,7 @@ export class AboutMeSessionComponent implements OnInit{
       foto : (<HTMLInputElement>event.target).value
     }
     this.datosAGuardar = datos;
+    this.actualizarDatos();
   }
 
 }

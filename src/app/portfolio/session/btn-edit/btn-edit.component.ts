@@ -51,7 +51,7 @@ export class BtnEditComponent {
   async datosObtenidos(){
     try {
       this.datos = await this.obtenerInformacion();
-      console.log(this.datos);
+      console.log('2',this.datos);
     } catch (error) {
       console.log(error);
     }

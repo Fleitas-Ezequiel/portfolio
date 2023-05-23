@@ -81,9 +81,7 @@ export class JobSessionComponent {
         }
         this.job.fecha_inicio = fechaIni;
         this.job.fecha_fin = fechaFin;
-        
       }
-      
     })
   }
 

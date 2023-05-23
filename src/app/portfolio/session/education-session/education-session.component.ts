@@ -125,21 +125,19 @@ export class EducationSessionComponent {
   enviarDatos(){
     this.datosFinales = this.dataEducation[this.editar];
     this.datosAGuardar = this.fromUpdate.value;
-    if(this.datosAGuardar.institucion == ''){
-      this.datosAGuardar = this.datosFinales;
-    }
     this.datosAGuardar.id = this.datosFinales.id;
   }
+  
 
-  actualizarEstudio(event:Event, estudio:any){
+  actualizarEstudio(event:Event){
     
     this.datosAGuardar = this.fromUpdate.value;
   }
 
   deleteStudy(event:Event){
     event.preventDefault;
-    this.route = "/delete/education/"+ this.datosAGuardar.id;
-    console.log(this.datosAGuardar.id);
+    this.route = "/delete/education/"+ this.datosFinales.id;
+    console.log(this.datosFinales.id);
     this.authentication.eliminarDatos(this.route).subscribe(req => {
       console.log(req);
     })

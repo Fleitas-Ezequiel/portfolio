@@ -32,7 +32,7 @@
   <div *ngFor="let estudio of dataEducation, let indice = index" >
     <app-btn-edit class="btn-edit"
         (editarDescripcion)="editarEstudio($event, indice)" 
-        (guardarDescripcion)="actualizarEstudio($event, estudio)"
+        (guardarDescripcion)="actualizarEstudio($event)"
         [datosACargar]="datosAGuardar"
         [ruta]="route"></app-btn-edit>
 
@@ -57,11 +57,10 @@
     <ng-template #editCard>
       <form [formGroup]="fromUpdate" class="cards-study"
             (change)="enviarDatos()"
-            (mouseup)="enviarDatos()">
+            (focus)="enviarDatos()">
         
         <textarea type="text" placeholder="URl Imagen" class="inputIMG" formControlName="img" [value]="study.img"></textarea>
         <div>
-          <input type="text" formControlName="id" [value]="study.id" style="display: none;">
           <input type="text" placeholder="Nombre Institucion" formControlName="institucion" [value]="study.institucion">
           <p><b>Titulo:</b></p><input type="text" [value]="study.titulo" formControlName="titulo">
           <p><b>Fecha Inicio:</b></p><input type="Date" formControlName="fecha_inicio_estudio" [value]="study.fecha_inicio_estudio">

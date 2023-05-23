@@ -74,7 +74,7 @@ a{
   width: 70%;
   border-radius: 15px;
   margin: auto;
-  background-color: #a5b9b9;
+  background-color: rgb(165, 185, 185);
   cursor: pointer;
   color: #f8f8f8;
   font-size: 1.1rem;
@@ -83,7 +83,7 @@ a{
 }
 
 .button:hover{
-  background-color: rgba(100, 149, 237, .8);
+  background-color: rgb(165, 185, 185, .8);
 }
 
 .button__container {

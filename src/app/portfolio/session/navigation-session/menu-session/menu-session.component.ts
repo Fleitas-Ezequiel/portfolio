@@ -16,12 +16,13 @@ export class MenuSessionComponent implements OnInit{
   estado:String = "contenedor-items";
   width: any;
   social:any;
-  menucheck:boolean = false;
+  menucheck:Boolean = false;
   mostrar:boolean = false;
   form:FormGroup;
   ident:any;
   abrirConfig:Boolean = false;
   menuConfig:String = 'menuConfig';
+  editar:number = -1;
 
   constructor(
     private router: Router,
@@ -33,11 +34,21 @@ export class MenuSessionComponent implements OnInit{
 
     this.form = this.formBuilder.group(
       {
+        id: [this.ident],
         tipo_contacto:[''],
         valor_contacto:[''],
         img:['']
     })
 
+  }
+  get TipoContacto(){
+    return this.form.get('tipo_contacto');
+  }
+  get ValorContacto(){
+    return this.form.get('valor_contacto');
+  }
+  get Img(){
+    return this.form.get('img');
   }
 
   ngOnInit():void{
@@ -53,7 +64,7 @@ export class MenuSessionComponent implements OnInit{
   }
 
   menuClick():void{
-    this.estilosMenu = (this.estilosMenu === "redes__sociales-lista")?this.estilosMenu += " open" : this.estilosMenu = "redes__sociales-lista";
+    this.estilosMenu = (this.estilosMenu === "redes__sociales-lista")?this.estilosMenu = "open" : this.estilosMenu = "redes__sociales-lista";
     this.estado = (this.estado === "contenedor-items")?this.estado = "desplegado" : this.estado = "contenedor-items";
   }
 
@@ -65,7 +76,6 @@ export class MenuSessionComponent implements OnInit{
 
   @HostListener('window:resize', ['$event'])
   onWindowResize(event:EventListener) {
-    // Tu lógica para el cambio de tamaño de la ventana aquí
     this.width = window.innerWidth;
     if(this.width > 760){
       this.cerrarMenu();
@@ -82,17 +92,17 @@ export class MenuSessionComponent implements OnInit{
 
   onSend(event:Event){
     event.preventDefault;
-    
     this.service.guardarDatos('/guardar/contacto',this.form.value).subscribe(resp => {
       console.log(resp);
     })
   }
 
-  editar(i:number){
-    console.log(i);
-    this.abrirConfig = !this.abrirConfig;
-    
+  editarContacto(indice:number){
+    if(this.editar == indice){
+      this.editar = -1;
+    }else{
+      this.editar = indice;
+    }
   }
-
 
 }

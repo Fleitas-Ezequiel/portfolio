@@ -13,6 +13,10 @@ html {
   height: 80px;
   width: 100vw;
   position: sticky;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: antiquewhite;
   box-shadow: 0 .5rem .8rem rgba(0, 0, 0, .2);
   /* position: sticky;
@@ -20,10 +24,6 @@ html {
   width: 100%;
   height: var(--nav-height);
   margin-bottom: calc(var(--nav-height) * -1);
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   transition: top 0.5s, box-shadow 0.5s; */
 }
 

@@ -42,7 +42,6 @@ export class MenuComponent {
   
   @HostListener('window:resize', ['$event'])
   onWindowResize(event:EventListener) {
-    // Tu lógica para el cambio de tamaño de la ventana aquí
     this.width = window.innerWidth;
     if(this.width > 760){
       this.cerrarMenu();

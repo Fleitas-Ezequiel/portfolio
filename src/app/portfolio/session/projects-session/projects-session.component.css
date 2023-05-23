@@ -1,3 +1,12 @@
+.container {
+  padding: 5%;
+}
+
+.cabecera {
+  display: flex;
+  gap: 10px;
+}
+
 h2{
   font-size: 2.5rem;
   font-family: Arial, Helvetica, sans-serif;
@@ -24,6 +33,69 @@ h2{
 .card img{
   height: 80%;
   width: 80%;
+}
+
+.form {
+  margin-bottom: 40px;
+}
+
+.form input {
+  padding: 5px;
+  font-size: 1.3rem;
+}
+
+.form textarea {
+  height: 6rem;
+  width: 100%;
+}
+
+.agregar {
+  height: 3.4rem;
+  width: 3.4rem;
+  border-radius: 100px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.cancelar {
+  transform: rotate(45deg);
+  background-color: rgba(255, 0, 0, 0.658);
+}
+
+.item {
+  width: 100%;
+  height: 7px;
+  background-color: black;
+}
+
+.vertical {
+  transform: rotate(90deg);
+  margin-top: -6px;
+}
+
+img{
+  height: 110px;
+  width: 110px;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.btn-edit{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  border: 2px;
+}
+
+.eliminar {
+  height: 4rem;
+  width: 4rem;
+  padding: 10px;
+  border-radius: 100px;
+  background-color: rgba(223, 16, 16, 0.808);
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {

@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  url="http://localhost:8080/";
+  url="springboot-api-production-c063.up.railway.app/";
   currentUserSubject: BehaviorSubject<any>;
 
   //inyectamos el servicio de http client

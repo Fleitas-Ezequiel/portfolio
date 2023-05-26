@@ -10,7 +10,7 @@ export class ServicesService {
 
   constructor(private http:HttpClient, private autenticacionServicio:AuthService ) { }
 
-  direccion:String = 'http://localhost:8080/api'; //./assets/json/dataTest.json
+  direccion:String = 'https://springboot-api-production-c063.up.railway.app/api'; //./assets/json/dataTest.json
 
   obtenerDatos():Observable<any>{
     
@@ -23,7 +23,7 @@ export class ServicesService {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     })
-    return this.http.post( 'http://localhost:8080/api' + dir, datos, { headers:header });
+    return this.http.post( 'https://springboot-api-production-c063.up.railway.app/api' + dir, datos, { headers:header });
   }
 
   actualizarDatos(dir:String, datos:any):Observable<any>{
@@ -32,7 +32,7 @@ export class ServicesService {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     })
-    return this.http.put( 'http://localhost:8080/api' + dir, datos, { headers:header });
+    return this.http.put( 'https://springboot-api-production-c063.up.railway.app/api' + dir, datos, { headers:header });
   }
 
   eliminarDatos(dir:String):Observable<any>{
@@ -41,6 +41,6 @@ export class ServicesService {
       'Content-Type' : 'application/json',
       Authorization : `Bearer ${token}`
     })
-    return this.http.delete('http://localhost:8080/api'+ dir, { headers:header });
+    return this.http.delete('https://springboot-api-production-c063.up.railway.app/api'+ dir, { headers:header });
   }
 }

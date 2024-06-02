@@ -1,0 +1,8 @@
+version: '3.5'
+
+services:
+  front:
+    container_name: angular-app
+    build: .
+    ports:
+      - 4500:80

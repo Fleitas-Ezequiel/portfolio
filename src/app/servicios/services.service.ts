@@ -10,7 +10,6 @@ export class ServicesService {
 
   constructor(private http:HttpClient, private autenticacionServicio:AuthService ) { }
 
-  // direccion:String = 'https://springboot-api-production-c063.up.railway.app/api';
   direccion:String = 'http://localhost:8080/api'; // Direccion de testing
 
   obtenerDatos():Observable<any>{
